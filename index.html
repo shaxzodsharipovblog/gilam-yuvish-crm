@@ -1107,6 +1107,76 @@
   .exp-type-cfg-del { border: none; background: var(--danger); color: #fff; width: 24px; height: 24px; border-radius: 50%; font-size: 13px; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .exp-type-cfg-spacer { width: 24px; flex-shrink: 0; }
 
+  /* ═══════════════ EXPENSE REDESIGN 2.0 ═══════════════ */
+  .exp-form-header { display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border); }
+  .exp-form-icon-wrap { width:42px;height:42px;background:linear-gradient(135deg,var(--primary),#6366F1);border-radius:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+  .exp-form-plus { color:#fff;font-size:24px;font-weight:300;line-height:1; }
+  .exp-form-header-text { flex:1; }
+  .exp-form-sub { font-size:12px;color:var(--text-muted);margin-top:2px; }
+  .exp-form-bottom { display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);flex-wrap:wrap; }
+  .exp-receipt-mini-wrap { display:flex;align-items:center;gap:6px; }
+  .exp-receipt-mini { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:54px;height:54px;border:1.5px dashed var(--border-strong);border-radius:12px;cursor:pointer;background:var(--bg-input);transition:all .15s;overflow:hidden;flex-shrink:0; }
+  .exp-receipt-mini:hover { border-color:var(--primary);background:var(--primary-soft); }
+  .exp-receipt-mini img { width:100%;height:100%;object-fit:cover; }
+  .exp-receipt-mini-icon { font-size:18px; }
+  .exp-receipt-mini-label { font-size:10px;color:var(--text-muted);font-weight:600; }
+  .exp-save-btn { flex:1;min-width:180px;padding:14px 20px;font-size:15px;font-weight:700;border-radius:12px; }
+  /* Custom date range redesign */
+  .exp-custom-wrap { margin-top:12px;padding:16px;background:var(--bg-input);border-radius:14px;border:1px solid var(--border); }
+  .exp-custom-fields { display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap; }
+  .exp-custom-field { display:flex;flex-direction:column;gap:5px; }
+  .exp-custom-label { font-size:10.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px; }
+  .exp-custom-field input { font-size:13px;padding:9px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);width:140px; }
+  .exp-custom-arrow { font-size:20px;color:var(--text-muted);padding-bottom:8px; }
+  .exp-quick-presets { display:flex;align-items:center;gap:6px;margin-top:12px;flex-wrap:wrap; }
+  .exp-quick-label { font-size:11px;color:var(--text-muted);font-weight:600;margin-right:2px; }
+  .exp-quick-presets button { border:1px solid var(--border);background:var(--bg-card);color:var(--text-soft);font-size:11.5px;font-weight:600;padding:5px 14px;border-radius:20px;cursor:pointer;transition:all .15s; }
+  .exp-quick-presets button:hover { border-color:var(--primary);color:var(--primary);background:var(--primary-soft); }
+  /* ===== Sozlash ko'rinishi (inline, zamonaviy) ===== */
+  .exp-mode-btn { white-space:nowrap; flex-shrink:0; transition:all .15s; }
+  .exp-form-icon-wrap.cfg { background:linear-gradient(135deg,#8B5CF6,#6366F1); }
+  .exp-cfg2-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+  @media(max-width:760px){ .exp-cfg2-grid { grid-template-columns:1fr; } }
+  .exp-cfg2-block { background:var(--bg-input); border:1px solid var(--border); border-radius:16px; padding:18px; display:flex; flex-direction:column; }
+  .exp-cfg2-head { display:flex; align-items:center; gap:11px; margin-bottom:15px; }
+  .exp-cfg2-ico { width:38px; height:38px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .exp-cfg2-title { font-size:14px; font-weight:700; color:var(--text); }
+  .exp-cfg2-desc { font-size:11.5px; color:var(--text-muted); margin-top:2px; }
+  .exp-cfg2-add { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; align-items:center; }
+  .exp-cfg2-add input { flex:1; min-width:120px; font-size:13px; padding:9px 12px; border-radius:10px; border:1px solid var(--border); background:var(--bg-card); color:var(--text); outline:none; transition:border-color .15s; }
+  .exp-cfg2-add input:focus { border-color:var(--primary); }
+  .exp-cfg2-add select { font-size:12px; padding:9px 10px; border-radius:10px; border:1px solid var(--border); background:var(--bg-card); color:var(--text); }
+  .exp-cfg2-block .exp-types-config { max-height:300px; overflow-y:auto; padding-right:2px; }
+  .exp-cfg2-block .exp-type-cfg-row { background:var(--bg-card); }
+  .exp-cfg2-block .unit-chip { background:var(--bg-card); }
+  .exp-cfg2-block .exp-units-list { min-height:32px; }
+  /* Analytics expandable top5 */
+  .exp-top5-item { border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:8px;transition:box-shadow .15s; }
+  .exp-top5-item:hover { box-shadow:var(--shadow); }
+  .exp-top5-head { display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;background:var(--bg-card);user-select:none; }
+  .exp-top5-rank { width:28px;height:28px;border-radius:9px;background:var(--primary-soft);color:var(--primary-dark);font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0; }
+  .exp-top5-info { flex:1;min-width:0; }
+  .exp-top5-name { font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .exp-top5-date { font-size:11px;color:var(--text-muted);margin-top:1px; }
+  .exp-top5-amount { font-size:14px;font-weight:800;color:#EF4444;white-space:nowrap; }
+  .exp-top5-chevron { font-size:13px;color:var(--text-muted);transition:transform .2s;margin-left:4px; }
+  .exp-top5-item.open .exp-top5-chevron { transform:rotate(90deg); }
+  .exp-top5-detail { display:none;padding:12px 16px;background:var(--bg-input);border-top:1px solid var(--border); }
+  .exp-top5-item.open .exp-top5-detail { display:grid;grid-template-columns:1fr 1fr;gap:6px 16px; }
+  .exp-top5-drow { display:flex;flex-direction:column;gap:1px; }
+  .exp-top5-dkey { font-size:10.5px;color:var(--text-muted);font-weight:600; }
+  .exp-top5-dval { font-size:13px;font-weight:600;color:var(--text); }
+  /* Comparative analysis */
+  .exp-compare-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+  @media(max-width:600px){ .exp-compare-grid { grid-template-columns:1fr; } }
+  .exp-compare-item { background:var(--bg-input);border-radius:12px;padding:14px; }
+  .exp-compare-label { font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:6px; }
+  .exp-compare-val { font-size:20px;font-weight:800;color:var(--text);letter-spacing:-.5px; }
+  .exp-compare-badge { display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-top:6px; }
+  .exp-compare-badge.up { background:#FEF2F2;color:#EF4444; }
+  .exp-compare-badge.down { background:#ECFDF5;color:#10B981; }
+  .exp-compare-badge.same { background:var(--bg-input);color:var(--text-muted); }
+
   /* ═══════════════ MODERN SETTINGS (reference-matched) ═══════════════ */
   #page-settings .page-header h2 { font-size: 26px; font-weight: 800; }
   .set-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; align-items: start; }
@@ -1970,7 +2040,113 @@
         <p>Barcha xarajatlarni qayd eting — miqdor, chek rasmi, tahlil va Excel hisobot bilan</p>
       </div>
 
-      <!-- PERIOD SELECTOR — drives KPIs, analytics and list -->
+      <!-- ADD EXPENSE / SETTINGS CARD — top, visible to all -->
+      <div class="card exp-form-card" id="expFormCard">
+        <div class="exp-form-header">
+          <div class="exp-form-icon-wrap" id="expFormIconWrap"><span class="exp-form-plus" id="expFormIcon">+</span></div>
+          <div class="exp-form-header-text">
+            <div class="exp-form-title" id="expFormTitle">Yangi xarajat qo'shish</div>
+            <div class="exp-form-sub" id="expFormSub">Majburiy maydonlarni to'ldiring va saqlang</div>
+          </div>
+          <button class="btn btn-outline btn-sm owner-only exp-mode-btn" id="expModeToggleBtn" onclick="toggleExpConfig()">⚙️ Sozlash</button>
+        </div>
+
+        <!-- ===== KO'RINISH: YANGI XARAJAT ===== -->
+        <div id="expAddView">
+          <div class="exp-form-grid">
+            <div class="form-group">
+              <label>Xarajat turi *</label>
+              <select id="newExpenseType" onchange="syncExpenseUnitToType()">
+                <option value="shampun">Shampun va kimyo</option>
+                <option value="benzin">Benzin / Yoqilg'i</option>
+                <option value="oylik">Xodimlar oyligi</option>
+                <option value="ijara">Ijara haqi</option>
+                <option value="komunal">Komunal to'lovlar</option>
+                <option value="texnika">Texnika va jihozlar</option>
+                <option value="reklama">Reklama va marketing</option>
+                <option value="paket">Paket, qop, qog'oz</option>
+                <option value="tamirlash">Ta'mirlash</option>
+                <option value="boshqa">Boshqa</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Sana *</label>
+              <input type="text" id="newExpenseDate" placeholder="24/06/2026" inputmode="numeric" maxlength="10" oninput="formatDateInput(this)">
+            </div>
+            <div class="form-group">
+              <label>Izoh</label>
+              <input type="text" id="newExpenseNote" placeholder="Nima uchun / qaysi maqsadda...">
+            </div>
+            <div class="form-group">
+              <label>Miqdor <span style="color:var(--text-muted);font-weight:400;">— ixtiyoriy</span></label>
+              <input type="number" id="newExpenseQty" placeholder="1" min="0" step="any" oninput="calcExpenseTotal()">
+            </div>
+            <div class="form-group">
+              <label>O'lchov birligi</label>
+              <select id="newExpenseUnit"></select>
+            </div>
+            <div class="form-group">
+              <label>Birlik narxi (so'm)</label>
+              <input type="text" id="newExpenseUnitPrice" placeholder="50 000" inputmode="numeric" oninput="formatMoneyInput(this);calcExpenseTotal()">
+            </div>
+            <div class="form-group" style="grid-column:span 3;">
+              <label>Jami summa (so'm) *</label>
+              <input type="text" id="newExpenseAmount" placeholder="50 000" inputmode="numeric" oninput="formatMoneyInput(this)">
+              <div id="expCalcHint" style="font-size:11px;color:var(--primary);margin-top:5px;min-height:14px;"></div>
+            </div>
+          </div>
+          <div class="exp-form-bottom">
+            <div class="exp-receipt-mini-wrap">
+              <div id="expReceiptPreview" class="exp-receipt-mini" onclick="document.getElementById('newExpenseReceiptImg').click()" title="Chek rasmini yuklash">
+                <span class="exp-receipt-mini-icon">📎</span>
+                <span class="exp-receipt-mini-label">Chek</span>
+              </div>
+              <button type="button" id="expReceiptClearBtn" class="btn btn-danger btn-sm" style="display:none;padding:4px 8px;font-size:13px;" onclick="clearReceiptImg(event)" title="Rasmni o'chirish">×</button>
+            </div>
+            <input type="file" id="newExpenseReceiptImg" accept="image/*" style="display:none;" onchange="previewReceiptImg(this)">
+            <button class="btn btn-primary exp-save-btn" onclick="addExpense()">💾 Xarajatni saqlash</button>
+          </div>
+        </div>
+
+        <!-- ===== KO'RINISH: SOZLASH ===== -->
+        <div id="expConfigView" style="display:none;">
+          <div class="exp-cfg2-grid">
+            <!-- O'lchov birliklari -->
+            <div class="exp-cfg2-block">
+              <div class="exp-cfg2-head">
+                <span class="exp-cfg2-ico" style="background:rgba(14,165,233,.14);color:#0EA5E9;">📏</span>
+                <div>
+                  <div class="exp-cfg2-title">O'lchov birliklari</div>
+                  <div class="exp-cfg2-desc">Litr, dona, kg, metr — kerakligini qo'shing</div>
+                </div>
+              </div>
+              <div id="expUnitsListInline" class="exp-units-list"></div>
+              <div class="exp-cfg2-add">
+                <input type="text" id="newUnitNameInline" placeholder="Yangi birlik nomi..." onkeydown="if(event.key==='Enter')addExpenseUnit('newUnitNameInline')">
+                <button class="btn btn-primary btn-sm" onclick="addExpenseUnit('newUnitNameInline')">+ Qo'shish</button>
+              </div>
+            </div>
+            <!-- Xarajat turlari -->
+            <div class="exp-cfg2-block">
+              <div class="exp-cfg2-head">
+                <span class="exp-cfg2-ico" style="background:rgba(139,92,246,.14);color:#8B5CF6;">🏷️</span>
+                <div>
+                  <div class="exp-cfg2-title">Xarajat turlari</div>
+                  <div class="exp-cfg2-desc">Har bir turga o'lchov birligini biriktiring</div>
+                </div>
+              </div>
+              <div id="expTypesList" class="exp-types-config"></div>
+              <div class="exp-cfg2-add">
+                <input type="text" id="newTypeName" placeholder="Yangi tur: Suv, Gaz, Internet..." onkeydown="if(event.key==='Enter')addExpenseType()">
+                <select id="newTypeUnit"></select>
+                <button class="btn btn-primary btn-sm" onclick="addExpenseType()">+ Qo'shish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERIOD SELECTOR -->
       <div class="card exp-period-card">
         <div class="exp-period-bar">
           <div class="exp-seg" id="expSeg">
@@ -1979,15 +2155,31 @@
             <button data-p="month" class="active" onclick="setExpPeriod('month')">Bu oy</button>
             <button data-p="year" onclick="setExpPeriod('year')">Yil</button>
             <button data-p="all" onclick="setExpPeriod('all')">Hammasi</button>
-            <button data-p="custom" onclick="setExpPeriod('custom')">Maxsus davr</button>
-          </div>
-          <div class="exp-custom-range" id="expCustomRange" style="display:none;">
-            <input type="text" id="expFrom" placeholder="dan: 01/06/2026" inputmode="numeric" maxlength="10" oninput="formatDateInput(this)">
-            <span style="color:var(--text-muted);">—</span>
-            <input type="text" id="expTo" placeholder="gacha: 30/06/2026" inputmode="numeric" maxlength="10" oninput="formatDateInput(this)">
-            <button class="btn btn-primary btn-sm" onclick="renderFinance()">Ko'rsatish</button>
+            <button data-p="custom" onclick="setExpPeriod('custom')">📅 Maxsus davr</button>
           </div>
           <div class="exp-period-label" id="expPeriodLabel"></div>
+        </div>
+        <div class="exp-custom-wrap" id="expCustomRange" style="display:none;">
+          <div class="exp-custom-fields">
+            <div class="exp-custom-field">
+              <div class="exp-custom-label">📅 Boshlash sanasi</div>
+              <input type="text" id="expFrom" placeholder="01/06/2026" inputmode="numeric" maxlength="10" oninput="formatDateInput(this)">
+            </div>
+            <div class="exp-custom-arrow">→</div>
+            <div class="exp-custom-field">
+              <div class="exp-custom-label">📅 Tugash sanasi</div>
+              <input type="text" id="expTo" placeholder="30/06/2026" inputmode="numeric" maxlength="10" oninput="formatDateInput(this)">
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="renderFinance()" style="align-self:flex-end;">Ko'rsatish</button>
+          </div>
+          <div class="exp-quick-presets">
+            <span class="exp-quick-label">Tez tanlash:</span>
+            <button onclick="setCustomQuick(7)">7 kun</button>
+            <button onclick="setCustomQuick(14)">2 hafta</button>
+            <button onclick="setCustomQuick(30)">30 kun</button>
+            <button onclick="setCustomQuick(90)">3 oy</button>
+            <button onclick="setCustomQuick(180)">6 oy</button>
+          </div>
         </div>
       </div>
 
@@ -2009,100 +2201,12 @@
         </div>
       </div>
 
-      <!-- TYPE & UNIT CONFIG PANEL (owner) -->
-      <div class="card owner-only" id="expConfigPanel" style="display:none;margin-bottom:20px;">
-        <div class="card-header" style="display:flex;justify-content:space-between;align-items:center;">
-          <h3 style="margin:0;">⚙️ Xarajat turlari va o'lchov birliklari</h3>
-          <button class="btn btn-outline btn-sm" onclick="toggleExpConfig()">Yopish</button>
-        </div>
-        <div style="margin-bottom:8px;font-weight:700;font-size:13px;color:var(--text);">🏷️ Xarajat turlari <span style="font-weight:400;color:var(--text-muted);font-size:11px;">— har biriga o'lchov birligini biriktiring</span></div>
-        <div id="expTypesList" class="exp-types-config"></div>
-        <div style="display:flex;gap:8px;margin:12px 0 22px;max-width:480px;flex-wrap:wrap;">
-          <input type="text" id="newTypeName" placeholder="Yangi tur nomi..." style="flex:1;min-width:150px;" onkeydown="if(event.key==='Enter')addExpenseType()">
-          <select id="newTypeUnit" style="min-width:110px;"></select>
-          <button class="btn btn-primary btn-sm" onclick="addExpenseType()">+ Qo'shish</button>
-        </div>
-        <div style="margin-bottom:8px;font-weight:700;font-size:13px;color:var(--text);">📏 O'lchov birliklari</div>
-        <div id="expUnitsListInline" class="exp-units-list"></div>
-        <div style="display:flex;gap:8px;margin-top:12px;max-width:380px;">
-          <input type="text" id="newUnitNameInline" placeholder="Yangi o'lchov (dona, litr, kg...)" style="flex:1;" onkeydown="if(event.key==='Enter')addExpenseUnit('newUnitNameInline')">
-          <button class="btn btn-primary btn-sm" onclick="addExpenseUnit('newUnitNameInline')">+ Qo'shish</button>
-        </div>
-      </div>
-
-      <!-- ADD EXPENSE FORM — visible to all -->
-      <div class="card exp-form-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;flex-wrap:wrap;">
-          <div class="exp-form-title" style="margin:0;">➕ Yangi xarajat qo'shish</div>
-          <button class="btn btn-outline btn-sm owner-only" onclick="toggleExpConfig()">⚙️ Turlar / birliklarni sozlash</button>
-        </div>
-        <div class="exp-form-grid">
-          <div class="form-group">
-            <label>Xarajat turi *</label>
-            <select id="newExpenseType" onchange="syncExpenseUnitToType()">
-              <option value="shampun">Shampun va kimyo</option>
-              <option value="benzin">Benzin / Yoqilg'i</option>
-              <option value="oylik">Xodimlar oyligi</option>
-              <option value="ijara">Ijara haqi</option>
-              <option value="komunal">Komunal to'lovlar</option>
-              <option value="texnika">Texnika va jihozlar</option>
-              <option value="reklama">Reklama va marketing</option>
-              <option value="paket">Paket, qop, qog'oz</option>
-              <option value="tamirlash">Ta'mirlash</option>
-              <option value="boshqa">Boshqa</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Sana *</label>
-            <input type="text" id="newExpenseDate" placeholder="24/06/2026" inputmode="numeric" maxlength="10" oninput="formatDateInput(this)">
-          </div>
-          <div class="form-group">
-            <label>Izoh</label>
-            <input type="text" id="newExpenseNote" placeholder="Nima uchun / qaysi maqsadda...">
-          </div>
-          <div class="form-group">
-            <label>Miqdor <span style="color:var(--text-muted);font-weight:400;">— ixtiyoriy</span></label>
-            <input type="number" id="newExpenseQty" placeholder="1" min="0" step="any" oninput="calcExpenseTotal()">
-          </div>
-          <div class="form-group">
-            <label>O'lchov birligi</label>
-            <select id="newExpenseUnit"></select>
-          </div>
-          <div class="form-group">
-            <label>Birlik narxi (so'm)</label>
-            <input type="text" id="newExpenseUnitPrice" placeholder="50 000" inputmode="numeric" oninput="formatMoneyInput(this);calcExpenseTotal()">
-          </div>
-          <div class="form-group" style="grid-column:span 3;">
-            <label>Jami summa (so'm) *</label>
-            <input type="text" id="newExpenseAmount" placeholder="50 000" inputmode="numeric" oninput="formatMoneyInput(this)">
-            <div id="expCalcHint" style="font-size:11px;color:var(--primary);margin-top:5px;min-height:14px;"></div>
-          </div>
-        </div>
-        <div class="exp-receipt-upload">
-          <div id="expReceiptPreview" class="exp-receipt-drop" onclick="document.getElementById('newExpenseReceiptImg').click()">
-            <span style="font-size:26px;">📷</span>
-          </div>
-          <div style="flex:1;min-width:0;">
-            <div style="font-size:13px;font-weight:600;color:var(--text);">Chek / kvitansiya rasmini yuklang</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Foto yoki skanerdan — ixtiyoriy. Keyin ro'yxatdan ko'rish mumkin.</div>
-            <button type="button" id="expReceiptClearBtn" class="btn btn-outline btn-sm" style="margin-top:6px;display:none;" onclick="clearReceiptImg(event)">Rasmni olib tashlash</button>
-          </div>
-          <input type="file" id="newExpenseReceiptImg" accept="image/*" style="display:none;" onchange="previewReceiptImg(this)">
-        </div>
-        <button class="btn btn-primary" onclick="addExpense()" style="margin-top:4px">
-          💾 Xarajatni saqlash
-        </button>
-      </div>
-
-      <!-- ANALYTICS (owner only) -->
-      <div class="owner-only" id="expenseStructure"></div>
-
-      <!-- EXPENSE LIST (all roles see their entries, owner sees all) -->
+      <!-- EXPENSE LIST (all roles) -->
       <div class="card">
         <div class="exp-list-header">
           <div class="exp-list-title">📋 Xarajatlar ro'yxati</div>
           <div class="exp-list-filters" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <input type="text" id="expSearch" placeholder="🔍 Izoh, do'kon, chek..." oninput="renderFinance()" style="font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-input);color:var(--text);min-width:160px;">
+            <input type="text" id="expSearch" placeholder="🔍 Izoh, tur..." oninput="renderFinance()" style="font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-input);color:var(--text);min-width:160px;">
             <select id="expFilterType" onchange="renderFinance()" style="font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-input);color:var(--text)">
               <option value="">Barcha turlar</option>
               <option value="shampun">Shampun va kimyo</option>
@@ -2127,7 +2231,6 @@
                 <th>Tur</th>
                 <th>Tafsilot</th>
                 <th>Chek</th>
-                <th>Kim kiritdi</th>
                 <th>Summa</th>
                 <th></th>
               </tr>
@@ -2137,6 +2240,9 @@
         </div>
         <div id="expListFooter" class="exp-list-footer"></div>
       </div>
+
+      <!-- ANALYTICS — after list (owner only) -->
+      <div class="owner-only" id="expenseStructure"></div>
     </div>
 
     <!-- SETTINGS -->
@@ -6324,7 +6430,7 @@ function previewReceiptImg(input) {
   const r = new FileReader();
   r.onload = e => {
     _expReceiptImgB64 = e.target.result;
-    document.getElementById('expReceiptPreview').innerHTML = `<img src="${_expReceiptImgB64}">`;
+    document.getElementById('expReceiptPreview').innerHTML = `<img src="${_expReceiptImgB64}" style="width:100%;height:100%;object-fit:cover;">`;
     document.getElementById('expReceiptClearBtn').style.display = '';
   };
   r.readAsDataURL(f);
@@ -6332,7 +6438,7 @@ function previewReceiptImg(input) {
 function clearReceiptImg(ev) {
   if (ev) ev.stopPropagation();
   _expReceiptImgB64 = null;
-  document.getElementById('expReceiptPreview').innerHTML = '<span style="font-size:26px;">📷</span>';
+  document.getElementById('expReceiptPreview').innerHTML = '<span class="exp-receipt-mini-icon">📎</span><span class="exp-receipt-mini-label">Chek</span>';
   document.getElementById('expReceiptClearBtn').style.display = 'none';
   const f = document.getElementById('newExpenseReceiptImg'); if (f) f.value = '';
 }
@@ -6498,11 +6604,34 @@ function renderExpTypesList() {
     </div>`;
   }).join('');
 }
+function setCustomQuick(days) {
+  const now = new Date();
+  const from = new Date(now); from.setDate(now.getDate() - days + 1);
+  const fmt = d => `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+  const fEl = document.getElementById('expFrom'); if (fEl) fEl.value = fmt(from);
+  const tEl = document.getElementById('expTo'); if (tEl) tEl.value = fmt(now);
+  renderFinance();
+}
 function toggleExpConfig() {
-  const p = document.getElementById('expConfigPanel'); if (!p) return;
-  const show = (p.style.display === 'none' || !p.style.display);
-  p.style.display = show ? 'block' : 'none';
-  if (show) { renderExpTypesList(); renderUnitsList(); }
+  const addV = document.getElementById('expAddView');
+  const cfgV = document.getElementById('expConfigView');
+  if (!addV || !cfgV) return;
+  const showCfg = (cfgV.style.display === 'none' || !cfgV.style.display);
+  cfgV.style.display = showCfg ? 'block' : 'none';
+  addV.style.display = showCfg ? 'none' : 'block';
+
+  const icon  = document.getElementById('expFormIcon');
+  const title = document.getElementById('expFormTitle');
+  const sub   = document.getElementById('expFormSub');
+  const btn   = document.getElementById('expModeToggleBtn');
+  const wrap  = document.getElementById('expFormIconWrap');
+  if (icon)  icon.textContent  = showCfg ? '⚙' : '+';
+  if (title) title.textContent = showCfg ? 'Xarajat sozlamalari' : "Yangi xarajat qo'shish";
+  if (sub)   sub.textContent   = showCfg ? "Turlar va o'lchov birliklarini o'zingizga moslang" : "Majburiy maydonlarni to'ldiring va saqlang";
+  if (btn)   btn.innerHTML     = showCfg ? "+ Yangi xarajat qo'shish" : "⚙️ Sozlash";
+  if (wrap)  wrap.classList.toggle('cfg', showCfg);
+
+  if (showCfg) { renderExpTypesList(); renderUnitsList(); }
 }
 
 function deleteExpense(id) {
@@ -6535,7 +6664,7 @@ function setExpPeriod(p) {
   _expPeriod = p;
   document.querySelectorAll('#expSeg button').forEach(b => b.classList.toggle('active', b.dataset.p === p));
   const cr = document.getElementById('expCustomRange');
-  if (cr) cr.style.display = (p === 'custom') ? 'flex' : 'none';
+  if (cr) cr.style.display = (p === 'custom') ? 'block' : 'none';
   if (p !== 'custom') renderFinance();
 }
 function getExpPeriodRange() {
@@ -6632,7 +6761,7 @@ function renderFinance() {
   const tbody = document.getElementById('expensesTbody');
   if (!tbody) return;
   if (visible.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state empty-state-small">
+    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state empty-state-small">
       <div class="empty-state-icon">💸</div>
       <div class="empty-state-text">${(filterType||search) ? 'Mos xarajat topilmadi' : 'Bu davrda xarajat yo\'q'}</div>
     </div></td></tr>`;
@@ -6652,7 +6781,6 @@ function renderFinance() {
         <td><span class="exp-type-badge" style="border-color:${td.color}1a;color:${td.color};background:${td.color}12">${td.icon} ${td.label||e.type}</span></td>
         <td>${noteHtml}${qtyHtml}</td>
         <td>${imgHtml}</td>
-        <td><div class="exp-who"><div class="exp-who-dot" style="background:${bg}">${whoInitials(e.enteredBy||'?')}</div>${escapeHtml(e.enteredBy||'—')}</div></td>
         <td><b style="color:#EF4444;font-size:14px">-${formatMoney(e.amount)}</b></td>
         <td>${isOwner ? `<button class="btn btn-danger btn-sm" onclick="deleteExpense(${e.id})">×</button>` : ''}</td>
       </tr>`;
@@ -6709,13 +6837,12 @@ function exportExpensesExcel() {
 function renderExpenseAnalytics(expenses, from, to) {
   const cont = document.getElementById('expenseStructure');
   if (!cont) return;
-  if (!expenses.length) { cont.innerHTML = '<div class="card" style="margin-bottom:20px;text-align:center;color:var(--text-muted);padding:24px;">Bu davrda tahlil uchun xarajat yo\'q</div>'; return; }
+  if (!expenses.length) { cont.innerHTML = ''; return; }
 
   const TYPES = getExpTypes();
   const total = expenses.reduce((s,e)=>s+(e.amount||0),0);
   const count = expenses.length;
   const avg = count ? total/count : 0;
-  // Kunlik o'rtacha (burn rate)
   let dayCount;
   if (from && to) dayCount = Math.max(1, Math.round((to - from)/86400000) + 1);
   else { const days = new Set(expenses.map(e=>e.date)); dayCount = Math.max(1, days.size); }
@@ -6728,14 +6855,29 @@ function renderExpenseAnalytics(expenses, from, to) {
   // By frequency
   const byCount = {}; expenses.forEach(e => byCount[e.type]=(byCount[e.type]||0)+1);
   const cntSorted = Object.entries(byCount).sort((a,b)=>b[1]-a[1]);
-  // Eng katta yakka xarajatlar
-  const topExp = [...expenses].sort((a,b)=>(b.amount||0)-(a.amount||0)).slice(0,5);
+  // Oxirgi 5 ta xarajat — sana bo'yicha (eng yangi birinchi)
+  const top5 = [...expenses].sort((a,b)=> {
+    const d = new Date(b.date) - new Date(a.date);
+    if (d !== 0) return d;
+    return (b.createdAt ? new Date(b.createdAt) : 0) - (a.createdAt ? new Date(a.createdAt) : 0);
+  }).slice(0,5);
+
+  // Oldingi davr ma'lumotlari tahlili uchun
+  const allExp = DB.get('tm_expenses', []);
+  let prevTotal = null, prevCount = null;
+  if (from && to) {
+    const len = to - from;
+    const pf = new Date(from.getTime() - len - 1), pt = new Date(from.getTime() - 1);
+    const prev = allExp.filter(e => { const d = new Date(e.date); return d >= pf && d <= pt; });
+    prevTotal = prev.reduce((s,e)=>s+(e.amount||0),0);
+    prevCount = prev.length;
+  }
 
   const mini = `
-    <div class="exp-mini-grid">
+    <div class="exp-mini-grid" style="margin-top:20px;">
       <div class="exp-mini"><div class="exp-mini-label">Xarajatlar soni</div><div class="exp-mini-val">${count} ta</div><div class="exp-mini-sub">${dayCount} kun ichida</div></div>
-      <div class="exp-mini"><div class="exp-mini-label">O'rtacha xarajat</div><div class="exp-mini-val">${formatMoneyShort(avg)}</div><div class="exp-mini-sub">har bir yozuv</div></div>
-      <div class="exp-mini"><div class="exp-mini-label">Eng faol turi</div><div class="exp-mini-val">${(TYPES[cntSorted[0][0]]||{}).label||'—'}</div><div class="exp-mini-sub">${cntSorted[0][1]} marta</div></div>
+      <div class="exp-mini"><div class="exp-mini-label">O'rtacha 1 ta</div><div class="exp-mini-val">${formatMoneyShort(avg)}</div><div class="exp-mini-sub">har bir yozuv</div></div>
+      <div class="exp-mini"><div class="exp-mini-label">Eng faol tur</div><div class="exp-mini-val" style="font-size:14px;">${(TYPES[cntSorted[0][0]]||{}).icon||''} ${(TYPES[cntSorted[0][0]]||{}).label||'—'}</div><div class="exp-mini-sub">${cntSorted[0][1]} marta</div></div>
       <div class="exp-mini"><div class="exp-mini-label">Kunlik o'rtacha</div><div class="exp-mini-val">${formatMoneyShort(daily)}</div><div class="exp-mini-sub">sarflanish tezligi</div></div>
     </div>`;
 
@@ -6746,7 +6888,7 @@ function renderExpenseAnalytics(expenses, from, to) {
       <div class="exp-cat-icon" style="background:${t.color}"></div>
       <div class="exp-cat-info"><div class="exp-cat-name">${t.icon||''} ${t.label}</div><div class="exp-cat-bar-wrap"><div class="exp-cat-bar" style="width:${Math.round(val/maxSum*100)}%;background:${t.color}"></div></div></div>
       <div class="exp-cat-pct">${pct.toFixed(0)}%</div>
-      <div class="exp-cat-sum">-${formatMoney(val)}</div>
+      <div class="exp-cat-sum" style="color:#EF4444;font-weight:700;">-${formatMoney(val)}</div>
     </div>`;
   }).join('');
 
@@ -6757,32 +6899,87 @@ function renderExpenseAnalytics(expenses, from, to) {
       <div style="display:flex;align-items:center;"><span class="exp-freq-rank">${i+1}</span></div>
       <div class="exp-cat-info"><div class="exp-cat-name">${t.icon||''} ${t.label}</div><div class="exp-cat-bar-wrap"><div class="exp-cat-bar" style="width:${Math.round(c/maxCnt*100)}%;background:${t.color}"></div></div></div>
       <div class="exp-cat-pct"></div>
-      <div class="exp-cat-sum" style="color:var(--text)">${c} marta</div>
+      <div class="exp-cat-sum" style="color:var(--text);font-weight:700;">${c} marta</div>
     </div>`;
   }).join('');
 
-  const topRows = topExp.map((e,i) => {
-    const t = TYPES[e.type]||{label:'Boshqa',color:'#94A3B8'};
-    const sub = [formatShortDate(e.date), e.note ? escapeHtml(e.note) : t.label].filter(Boolean).join(' · ');
-    return `<div class="exp-vendor-row"><span><span class="exp-freq-rank">${i+1}</span> ${t.icon||''} ${escapeHtml((sub||'').slice(0,40))}</span><b style="color:#EF4444">${formatMoney(e.amount)}</b></div>`;
+  // Top 5 expandable items
+  const top5Rows = top5.map((e,i) => {
+    const t = TYPES[e.type]||{label:'Boshqa',color:'#94A3B8',icon:'📋'};
+    const uid = 'exp5_' + e.id;
+    const noteStr = e.note ? escapeHtml(e.note) : '—';
+    const qtyStr = (e.qty && e.unit) ? `${e.qty} ${escapeHtml(e.unit)}` : '—';
+    const priceStr = e.unitPrice ? formatMoney(e.unitPrice) : '—';
+    return `<div class="exp-top5-item" id="${uid}">
+      <div class="exp-top5-head" onclick="document.getElementById('${uid}').classList.toggle('open')">
+        <span class="exp-top5-rank">${i+1}</span>
+        <div class="exp-top5-info">
+          <div class="exp-top5-name">${t.icon} ${t.label}${e.note ? ' · '+escapeHtml(e.note.slice(0,30)) : ''}</div>
+          <div class="exp-top5-date">📅 ${formatShortDate(e.date)}</div>
+        </div>
+        <span class="exp-top5-amount">-${formatMoney(e.amount)}</span>
+        <span class="exp-top5-chevron">▶</span>
+      </div>
+      <div class="exp-top5-detail">
+        <div class="exp-top5-drow"><div class="exp-top5-dkey">Xarajat turi</div><div class="exp-top5-dval">${t.icon} ${t.label}</div></div>
+        <div class="exp-top5-drow"><div class="exp-top5-dkey">Sana</div><div class="exp-top5-dval">${formatShortDate(e.date)}</div></div>
+        <div class="exp-top5-drow"><div class="exp-top5-dkey">Izoh</div><div class="exp-top5-dval">${noteStr}</div></div>
+        <div class="exp-top5-drow"><div class="exp-top5-dkey">Miqdor</div><div class="exp-top5-dval">${qtyStr}</div></div>
+        <div class="exp-top5-drow"><div class="exp-top5-dkey">Birlik narxi</div><div class="exp-top5-dval">${priceStr}</div></div>
+        <div class="exp-top5-drow"><div class="exp-top5-dkey">Jami summa</div><div class="exp-top5-dval" style="color:#EF4444;font-weight:800;">-${formatMoney(e.amount)}</div></div>
+      </div>
+    </div>`;
   }).join('');
+
+  // Qiyosiy tahlil (joriy va oldingi davr)
+  let compareHtml = '';
+  if (prevTotal !== null) {
+    const diff = total - prevTotal;
+    const pct = prevTotal > 0 ? (diff / prevTotal * 100) : null;
+    const sign = diff > 0 ? '+' : '';
+    const cls = diff > 0 ? 'up' : (diff < 0 ? 'down' : 'same');
+    const badge = pct !== null
+      ? `<span class="exp-compare-badge ${cls}">${diff>0?'▲':'▼'} ${Math.abs(pct).toFixed(1)}% oldingi davrga nisbatan</span>`
+      : `<span class="exp-compare-badge same">Oldingi davrda xarajat yo'q edi</span>`;
+    compareHtml = `
+      <div class="card" style="margin-top:18px;">
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">📊 Qiyosiy tahlil</div>
+        <div class="exp-compare-grid">
+          <div class="exp-compare-item">
+            <div class="exp-compare-label">Joriy davr xarajati</div>
+            <div class="exp-compare-val" style="color:#EF4444;">-${formatMoney(total)}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">${count} ta yozuv</div>
+          </div>
+          <div class="exp-compare-item">
+            <div class="exp-compare-label">Oldingi davr xarajati</div>
+            <div class="exp-compare-val" style="color:var(--text-muted);">-${formatMoney(prevTotal)}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">${prevCount} ta yozuv</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          ${badge}
+          ${pct !== null ? `<span style="font-size:12px;color:var(--text-muted);">Farq: <b style="color:${diff>0?'#EF4444':'#10B981'}">${sign}${formatMoney(diff)}</b></span>` : ''}
+        </div>
+      </div>`;
+  }
 
   cont.innerHTML = `
     ${mini}
-    <div class="analytics-row">
+    <div class="analytics-row" style="margin-top:18px;">
       <div class="card">
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">💰 Eng ko'p xarajat turlari (summa)</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;">💰 Eng ko'p xarajat turlari</div>
         ${sumRows}
       </div>
       <div class="card">
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">🔁 Eng tez-tez qilinadigan xarajatlar</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;">🔁 Tez-tez qilinadigan xarajatlar</div>
         ${freqRows}
       </div>
     </div>
-    <div class="card" style="margin-bottom:18px;">
-      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;">🔺 Eng katta yakka xarajatlar</div>
-      ${topRows}
-    </div>`;
+    <div class="card" style="margin-top:18px;">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:14px;">🕐 Oxirgi 5 ta xarajat <span style="font-size:11px;font-weight:400;color:var(--text-muted);">— sana bo'yicha, bosib to'liq ko'ring</span></div>
+      <div class="exp-top5-section">${top5Rows || '<div style="color:var(--text-muted);text-align:center;padding:20px;">Ma\'lumot yo\'q</div>'}</div>
+    </div>
+    ${compareHtml}`;
 }
 
 /* ============== PRODUCTS ============== */
