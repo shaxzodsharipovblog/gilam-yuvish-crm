@@ -1101,11 +1101,27 @@
   .exp-freq-rank { width: 22px; height: 22px; border-radius: 7px; background: var(--primary-soft); color: var(--primary-dark); font-size: 11px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; }
   .exp-units-list { display: flex; flex-wrap: wrap; gap: 8px; }
   .exp-types-config { display: flex; flex-direction: column; gap: 6px; }
-  .exp-type-cfg-row { display: flex; align-items: center; gap: 10px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; padding: 7px 10px; }
-  .exp-type-cfg-name { flex: 1; font-size: 13px; font-weight: 600; color: var(--text); min-width: 0; }
-  .exp-type-cfg-row select { font-size: 12px; padding: 5px 8px; border-radius: 7px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); }
-  .exp-type-cfg-del { border: none; background: var(--danger); color: #fff; width: 24px; height: 24px; border-radius: 50%; font-size: 13px; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-  .exp-type-cfg-spacer { width: 24px; flex-shrink: 0; }
+  /* EXP CONFIG MODAL */
+  .exp-cfg-modal { width: min(520px, 96vw); max-height: 82vh; overflow-y: auto; border-radius: 20px; padding: 24px 22px; background: var(--bg-card); }
+  .cfg-modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .cfg-modal-head h3 { margin: 0; font-size: 15px; font-weight: 700; color: var(--text); }
+  .cfg-modal-close { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--bg-input); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all .15s; }
+  .cfg-modal-close:hover { border-color: var(--danger); color: var(--danger); }
+  .cfg-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); margin: 16px 0 10px; }
+  .cfg-section-title span { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 11px; }
+  .cfg-add-row { display: flex; gap: 8px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
+  .cfg-add-row input { flex: 1; min-width: 130px; }
+  .exp-types-config { display: flex; flex-direction: column; gap: 5px; }
+  .exp-type-cfg-row { display: flex; align-items: center; gap: 8px; background: var(--bg-input); border: 1px solid var(--border); border-radius: 12px; padding: 9px 12px; transition: background .15s; }
+  .exp-type-cfg-row:hover { background: var(--bg-card); border-color: var(--border-strong); }
+  .exp-type-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .exp-type-cfg-name { flex: 1; font-size: 13px; font-weight: 500; color: var(--text); min-width: 0; }
+  .exp-type-cfg-name input { width: 100%; padding: 3px 8px; border-radius: 7px; border: 1.5px solid var(--primary); background: var(--bg-input); color: var(--text); font-size: 13px; }
+  .exp-type-unit-sel { font-size: 12px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); }
+  .exp-cfg-edit-btn { font-size: 11px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all .15s; }
+  .exp-cfg-edit-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+  .exp-type-cfg-del { font-size: 11px; padding: 4px 10px; border-radius: 8px; border: 1px solid transparent; background: transparent; color: var(--danger); cursor: pointer; white-space: nowrap; transition: all .15s; }
+  .exp-type-cfg-del:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
 
   /* ═══════════════ MODERN SETTINGS (reference-matched) ═══════════════ */
   #page-settings .page-header h2 { font-size: 26px; font-weight: 800; }
@@ -2003,38 +2019,19 @@
           <div class="exp-kpi-val" id="fin-prev">0 so'm</div>
         </div>
         <div class="exp-kpi-card purple" id="fin-dynamic-card">
-          <div class="exp-kpi-label">📈 Xarajatlar dinamikasi</div>
+          <div class="exp-kpi-label">Dinamika</div>
           <div class="exp-kpi-val" id="fin-dynamic">—</div>
           <div class="exp-kpi-sub" id="fin-dynamic-sub"></div>
         </div>
       </div>
 
-      <!-- TYPE & UNIT CONFIG PANEL (owner) -->
-      <div class="card owner-only" id="expConfigPanel" style="display:none;margin-bottom:20px;">
-        <div class="card-header" style="display:flex;justify-content:space-between;align-items:center;">
-          <h3 style="margin:0;">⚙️ Xarajat turlari va o'lchov birliklari</h3>
-          <button class="btn btn-outline btn-sm" onclick="toggleExpConfig()">Yopish</button>
-        </div>
-        <div style="margin-bottom:8px;font-weight:700;font-size:13px;color:var(--text);">🏷️ Xarajat turlari <span style="font-weight:400;color:var(--text-muted);font-size:11px;">— har biriga o'lchov birligini biriktiring</span></div>
-        <div id="expTypesList" class="exp-types-config"></div>
-        <div style="display:flex;gap:8px;margin:12px 0 22px;max-width:480px;flex-wrap:wrap;">
-          <input type="text" id="newTypeName" placeholder="Yangi tur nomi..." style="flex:1;min-width:150px;" onkeydown="if(event.key==='Enter')addExpenseType()">
-          <select id="newTypeUnit" style="min-width:110px;"></select>
-          <button class="btn btn-primary btn-sm" onclick="addExpenseType()">+ Qo'shish</button>
-        </div>
-        <div style="margin-bottom:8px;font-weight:700;font-size:13px;color:var(--text);">📏 O'lchov birliklari</div>
-        <div id="expUnitsListInline" class="exp-units-list"></div>
-        <div style="display:flex;gap:8px;margin-top:12px;max-width:380px;">
-          <input type="text" id="newUnitNameInline" placeholder="Yangi o'lchov (dona, litr, kg...)" style="flex:1;" onkeydown="if(event.key==='Enter')addExpenseUnit('newUnitNameInline')">
-          <button class="btn btn-primary btn-sm" onclick="addExpenseUnit('newUnitNameInline')">+ Qo'shish</button>
-        </div>
-      </div>
+      <!-- TYPE & UNIT CONFIG — opens as modal via toggleExpConfig() -->
 
       <!-- ADD EXPENSE FORM — visible to all -->
       <div class="card exp-form-card">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;flex-wrap:wrap;">
-          <div class="exp-form-title" style="margin:0;">➕ Yangi xarajat qo'shish</div>
-          <button class="btn btn-outline btn-sm owner-only" onclick="toggleExpConfig()">⚙️ Turlar / birliklarni sozlash</button>
+          <div class="exp-form-title" style="margin:0;">Yangi xarajat</div>
+          <button class="btn btn-outline btn-sm owner-only" onclick="toggleExpConfig()">Turlar / birliklarni sozlash</button>
         </div>
         <div class="exp-form-grid">
           <div class="form-group">
@@ -2080,17 +2077,17 @@
         </div>
         <div class="exp-receipt-upload">
           <div id="expReceiptPreview" class="exp-receipt-drop" onclick="document.getElementById('newExpenseReceiptImg').click()">
-            <span style="font-size:26px;">📷</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           </div>
           <div style="flex:1;min-width:0;">
-            <div style="font-size:13px;font-weight:600;color:var(--text);">Chek / kvitansiya rasmini yuklang</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Foto yoki skanerdan — ixtiyoriy. Keyin ro'yxatdan ko'rish mumkin.</div>
+            <div style="font-size:13px;font-weight:600;color:var(--text);">Chek / kvitansiya</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Rasm ixtiyoriy. Keyin ro'yxatdan ko'rish mumkin.</div>
             <button type="button" id="expReceiptClearBtn" class="btn btn-outline btn-sm" style="margin-top:6px;display:none;" onclick="clearReceiptImg(event)">Rasmni olib tashlash</button>
           </div>
           <input type="file" id="newExpenseReceiptImg" accept="image/*" style="display:none;" onchange="previewReceiptImg(this)">
         </div>
         <button class="btn btn-primary" onclick="addExpense()" style="margin-top:4px">
-          💾 Xarajatni saqlash
+          Xarajatni saqlash
         </button>
       </div>
 
@@ -2100,7 +2097,7 @@
       <!-- EXPENSE LIST (all roles see their entries, owner sees all) -->
       <div class="card">
         <div class="exp-list-header">
-          <div class="exp-list-title">📋 Xarajatlar ro'yxati</div>
+          <div class="exp-list-title">Xarajatlar ro'yxati</div>
           <div class="exp-list-filters" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
             <input type="text" id="expSearch" placeholder="🔍 Izoh, do'kon, chek..." oninput="renderFinance()" style="font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-input);color:var(--text);min-width:160px;">
             <select id="expFilterType" onchange="renderFinance()" style="font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-input);color:var(--text)">
@@ -2127,7 +2124,6 @@
                 <th>Tur</th>
                 <th>Tafsilot</th>
                 <th>Chek</th>
-                <th>Kim kiritdi</th>
                 <th>Summa</th>
                 <th></th>
               </tr>
@@ -2311,6 +2307,29 @@
   </div>
   </div><!-- /content-area -->
 </div><!-- /app -->
+
+<!-- EXPENSE CONFIG MODAL -->
+<div class="modal-overlay" id="expConfigModal" style="display:none;" onclick="if(event.target===this)toggleExpConfig()">
+  <div class="exp-cfg-modal">
+    <div class="cfg-modal-head">
+      <h3>Xarajat sozlamalari</h3>
+      <button class="cfg-modal-close" onclick="toggleExpConfig()">×</button>
+    </div>
+    <div class="cfg-section-title">Xarajat turlari <span>— o'lchov birligini biriktiring</span></div>
+    <div id="expTypesList" class="exp-types-config"></div>
+    <div class="cfg-add-row">
+      <input type="text" id="newTypeName" placeholder="Yangi tur nomi..." onkeydown="if(event.key==='Enter')addExpenseType()">
+      <select id="newTypeUnit"></select>
+      <button class="btn btn-primary btn-sm" onclick="addExpenseType()">Qo'shish</button>
+    </div>
+    <div class="cfg-section-title" style="margin-top:22px;">O'lchov birliklari</div>
+    <div id="expUnitsListInline" class="exp-units-list"></div>
+    <div class="cfg-add-row">
+      <input type="text" id="newUnitNameInline" placeholder="Yangi birlik (dona, litr, kg...)" onkeydown="if(event.key==='Enter')addExpenseUnit('newUnitNameInline')">
+      <button class="btn btn-primary btn-sm" onclick="addExpenseUnit('newUnitNameInline')">Qo'shish</button>
+    </div>
+  </div>
+</div>
 
 <!-- CONFIRM MODAL -->
 <div class="modal-overlay" id="confirmModal">
@@ -6408,9 +6427,15 @@ function renderUnitsList() {
 
 /* ---- Xarajat turlari (built-in + custom) ---- */
 function getExpTypes() {
-  const custom = (getSettings().expenseTypes) || [];
-  const merged = Object.assign({}, EXP_TYPES);
-  custom.forEach(c => { merged[c.key] = { label: c.label, icon: c.icon || '🏷️', color: c.color || '#94A3B8', custom: true }; });
+  const s = getSettings();
+  const custom = s.expenseTypes || [];
+  const overrides = s.typeOverrides || {};
+  const hidden = s.hiddenTypes || [];
+  const merged = {};
+  Object.entries(EXP_TYPES).forEach(([k,v]) => {
+    if (!hidden.includes(k)) merged[k] = overrides[k] ? { ...v, label: overrides[k], icon: '' } : { ...v, icon: '' };
+  });
+  custom.forEach(c => { merged[c.key] = { label: c.label, icon: '', color: c.color || '#94A3B8', custom: true }; });
   return merged;
 }
 function populateExpenseTypeSelects() {
@@ -6466,7 +6491,7 @@ function addExpenseType() {
   const s = getSettings();
   if (!Array.isArray(s.expenseTypes)) s.expenseTypes = [];
   if (!s.typeUnits) s.typeUnits = {};
-  s.expenseTypes.push({ key, label, icon: '🏷️', color, unit });
+  s.expenseTypes.push({ key, label, icon: '', color, unit });
   s.typeUnits[key] = unit;
   saveSettings(s); inp.value = '';
   populateExpenseTypeSelects(); renderExpTypesList(); syncExpenseUnitToType();
@@ -6474,11 +6499,39 @@ function addExpenseType() {
 }
 function removeExpenseType(key) {
   const s = getSettings();
-  s.expenseTypes = (s.expenseTypes || []).filter(t => t.key !== key);
-  if (s.typeUnits) delete s.typeUnits[key];
+  if (EXP_TYPES[key]) {
+    if (!Array.isArray(s.hiddenTypes)) s.hiddenTypes = [];
+    if (!s.hiddenTypes.includes(key)) s.hiddenTypes.push(key);
+  } else {
+    s.expenseTypes = (s.expenseTypes || []).filter(t => t.key !== key);
+    if (s.typeUnits) delete s.typeUnits[key];
+  }
   saveSettings(s);
   populateExpenseTypeSelects(); renderExpTypesList();
   showToast('Xarajat turi olib tashlandi', 'info');
+}
+function editExpenseType(key) {
+  const row = document.getElementById('etr-' + key);
+  if (!row) return;
+  const nameEl = row.querySelector('.exp-type-cfg-name');
+  const cur = nameEl.textContent.trim();
+  nameEl.innerHTML = `<input type="text" value="${escapeHtml(cur)}" onblur="saveExpenseTypeEdit('${key}',this.value)" onkeydown="if(event.key==='Enter')this.blur();if(event.key==='Escape')renderExpTypesList();">`;
+  nameEl.querySelector('input').focus();
+}
+function saveExpenseTypeEdit(key, newLabel) {
+  newLabel = (newLabel || '').trim();
+  if (!newLabel) return renderExpTypesList();
+  const s = getSettings();
+  if (EXP_TYPES[key]) {
+    if (!s.typeOverrides) s.typeOverrides = {};
+    s.typeOverrides[key] = newLabel;
+  } else {
+    const t = (s.expenseTypes || []).find(t => t.key === key);
+    if (t) t.label = newLabel;
+  }
+  saveSettings(s);
+  populateExpenseTypeSelects(); renderExpTypesList();
+  showToast('Nom yangilandi', 'success');
 }
 function renderExpTypesList() {
   const box = document.getElementById('expTypesList'); if (!box) return;
@@ -6488,20 +6541,19 @@ function renderExpTypesList() {
   box.innerHTML = Object.entries(types).map(([k,v]) => {
     const bound = getTypeUnit(k);
     const opts = units.map(u => `<option value="${escapeHtml(u)}"${u===bound?' selected':''}>${escapeHtml(u)}</option>`).join('');
-    const del = v.custom
-      ? `<button class="exp-type-cfg-del" onclick="removeExpenseType('${k}')" title="O'chirish">×</button>`
-      : `<span class="exp-type-cfg-spacer"></span>`;
-    return `<div class="exp-type-cfg-row">
-      <span class="exp-type-cfg-name">${v.icon||''} ${escapeHtml(v.label)}</span>
-      <select onchange="bindTypeUnit('${k}', this.value)" title="O'lchov birligi">${opts}</select>
-      ${del}
+    return `<div class="exp-type-cfg-row" id="etr-${k}">
+      <div class="exp-type-dot" style="background:${v.color||'#94A3B8'}"></div>
+      <span class="exp-type-cfg-name">${escapeHtml(v.label)}</span>
+      <select class="exp-type-unit-sel" onchange="bindTypeUnit('${k}', this.value)">${opts}</select>
+      <button class="exp-cfg-edit-btn" onclick="editExpenseType('${k}')">Tahrir</button>
+      <button class="exp-type-cfg-del" onclick="removeExpenseType('${k}')">O'chirish</button>
     </div>`;
   }).join('');
 }
 function toggleExpConfig() {
-  const p = document.getElementById('expConfigPanel'); if (!p) return;
-  const show = (p.style.display === 'none' || !p.style.display);
-  p.style.display = show ? 'block' : 'none';
+  const m = document.getElementById('expConfigModal'); if (!m) return;
+  const show = (m.style.display === 'none' || !m.style.display);
+  m.style.display = show ? 'flex' : 'none';
   if (show) { renderExpTypesList(); renderUnitsList(); }
 }
 
@@ -6527,7 +6579,7 @@ const EXP_TYPES = {
 
 function expenseTypeLabel(t) {
   const d = getExpTypes()[t];
-  return d ? d.icon + ' ' + d.label : (t || 'Boshqa');
+  return d ? d.label : (t || 'Boshqa');
 }
 
 /* ---- Davr (period) boshqaruvi ---- */
@@ -6570,7 +6622,7 @@ function renderFinance() {
   const isOwner  = u && u.role === 'owner';
 
   const { from, to, label } = getExpPeriodRange();
-  const pl = document.getElementById('expPeriodLabel'); if (pl) pl.textContent = '📅 ' + label;
+  const pl = document.getElementById('expPeriodLabel'); if (pl) pl.textContent = label;
 
   // Period-scoped data
   populateExpenseUnitSelect();
@@ -6604,7 +6656,7 @@ function renderFinance() {
     let color = '#8B5CF6';
     if (prevTotal === null) { dynE.textContent = '—'; if (dynSub) dynSub.textContent = '«Hammasi» davrida solishtirilmaydi'; }
     else if (prevTotal === 0) {
-      if (totalExp > 0) { dynE.textContent = '🆕 Yangi'; color = '#F59E0B'; if (dynSub) dynSub.textContent = (prevLabels[_expPeriod]||'Oldingi davr') + ' xarajatsiz edi'; }
+      if (totalExp > 0) { dynE.textContent = 'Yangi'; color = '#F59E0B'; if (dynSub) dynSub.textContent = (prevLabels[_expPeriod]||'Oldingi davr') + ' xarajatsiz edi'; }
       else { dynE.textContent = '—'; if (dynSub) dynSub.textContent = 'Ma\'lumot yo\'q'; }
     } else {
       const diff = totalExp - prevTotal;
@@ -6632,27 +6684,21 @@ function renderFinance() {
   const tbody = document.getElementById('expensesTbody');
   if (!tbody) return;
   if (visible.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state empty-state-small">
-      <div class="empty-state-icon">💸</div>
+    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state empty-state-small">
       <div class="empty-state-text">${(filterType||search) ? 'Mos xarajat topilmadi' : 'Bu davrda xarajat yo\'q'}</div>
     </div></td></tr>`;
   } else {
-    const avatarColors = ['#0EA5E9','#8B5CF6','#10B981','#F59E0B','#EF4444','#EC4899'];
-    const whoColor = name => { let h=0; for (const c of (name||'')) h+=c.charCodeAt(0); return avatarColors[h%avatarColors.length]; };
-    const whoInitials = name => { const p=(name||'?').trim().split(' '); return (p[0][0]+(p[1]?p[1][0]:'')).toUpperCase(); };
     tbody.innerHTML = visible.map(e => {
-      const td = TYPES[e.type] || { icon:'📋', color:'#94A3B8', label:e.type };
+      const td = TYPES[e.type] || { color:'#94A3B8', label:e.type };
       const unitTxt = e.unit || 'dona';
       const qtyHtml = (e.qty && e.unitPrice) ? `<div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${e.qty} ${escapeHtml(unitTxt)} × ${formatMoney(e.unitPrice)}</div>` : '';
       const noteHtml = e.note ? `<span style="font-size:12px">${escapeHtml(e.note)}</span>` : (qtyHtml ? '' : '<span style="color:var(--text-muted)">—</span>');
       const imgHtml = e.receiptImg ? `<img class="exp-receipt-thumb" src="${e.receiptImg}" onclick="openImgLightbox('${e.receiptImg.replace(/'/g,'')}')" title="Chek rasmini ko'rish">` : '<span style="color:var(--text-muted)">—</span>';
-      const bg = whoColor(e.enteredBy||'');
       return `<tr>
         <td><b>${formatShortDate(e.date)}</b></td>
-        <td><span class="exp-type-badge" style="border-color:${td.color}1a;color:${td.color};background:${td.color}12">${td.icon} ${td.label||e.type}</span></td>
+        <td><span class="exp-type-badge" style="border-color:${td.color}1a;color:${td.color};background:${td.color}12">${td.label||e.type}</span></td>
         <td>${noteHtml}${qtyHtml}</td>
         <td>${imgHtml}</td>
-        <td><div class="exp-who"><div class="exp-who-dot" style="background:${bg}">${whoInitials(e.enteredBy||'?')}</div>${escapeHtml(e.enteredBy||'—')}</div></td>
         <td><b style="color:#EF4444;font-size:14px">-${formatMoney(e.amount)}</b></td>
         <td>${isOwner ? `<button class="btn btn-danger btn-sm" onclick="deleteExpense(${e.id})">×</button>` : ''}</td>
       </tr>`;
@@ -6744,7 +6790,7 @@ function renderExpenseAnalytics(expenses, from, to) {
     const pct = total>0?val/total*100:0;
     return `<div class="exp-cat-row">
       <div class="exp-cat-icon" style="background:${t.color}"></div>
-      <div class="exp-cat-info"><div class="exp-cat-name">${t.icon||''} ${t.label}</div><div class="exp-cat-bar-wrap"><div class="exp-cat-bar" style="width:${Math.round(val/maxSum*100)}%;background:${t.color}"></div></div></div>
+      <div class="exp-cat-info"><div class="exp-cat-name">${t.label}</div><div class="exp-cat-bar-wrap"><div class="exp-cat-bar" style="width:${Math.round(val/maxSum*100)}%;background:${t.color}"></div></div></div>
       <div class="exp-cat-pct">${pct.toFixed(0)}%</div>
       <div class="exp-cat-sum">-${formatMoney(val)}</div>
     </div>`;
@@ -6755,7 +6801,7 @@ function renderExpenseAnalytics(expenses, from, to) {
     const t = TYPES[type]||{label:'Boshqa',color:'#94A3B8'};
     return `<div class="exp-cat-row">
       <div style="display:flex;align-items:center;"><span class="exp-freq-rank">${i+1}</span></div>
-      <div class="exp-cat-info"><div class="exp-cat-name">${t.icon||''} ${t.label}</div><div class="exp-cat-bar-wrap"><div class="exp-cat-bar" style="width:${Math.round(c/maxCnt*100)}%;background:${t.color}"></div></div></div>
+      <div class="exp-cat-info"><div class="exp-cat-name">${t.label}</div><div class="exp-cat-bar-wrap"><div class="exp-cat-bar" style="width:${Math.round(c/maxCnt*100)}%;background:${t.color}"></div></div></div>
       <div class="exp-cat-pct"></div>
       <div class="exp-cat-sum" style="color:var(--text)">${c} marta</div>
     </div>`;
@@ -6764,23 +6810,23 @@ function renderExpenseAnalytics(expenses, from, to) {
   const topRows = topExp.map((e,i) => {
     const t = TYPES[e.type]||{label:'Boshqa',color:'#94A3B8'};
     const sub = [formatShortDate(e.date), e.note ? escapeHtml(e.note) : t.label].filter(Boolean).join(' · ');
-    return `<div class="exp-vendor-row"><span><span class="exp-freq-rank">${i+1}</span> ${t.icon||''} ${escapeHtml((sub||'').slice(0,40))}</span><b style="color:#EF4444">${formatMoney(e.amount)}</b></div>`;
+    return `<div class="exp-vendor-row"><span><span class="exp-freq-rank">${i+1}</span> ${escapeHtml((sub||'').slice(0,40))}</span><b style="color:#EF4444">${formatMoney(e.amount)}</b></div>`;
   }).join('');
 
   cont.innerHTML = `
     ${mini}
     <div class="analytics-row">
       <div class="card">
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">💰 Eng ko'p xarajat turlari (summa)</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">Eng ko'p xarajat turlari (summa)</div>
         ${sumRows}
       </div>
       <div class="card">
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">🔁 Eng tez-tez qilinadigan xarajatlar</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px;">Eng tez-tez qilinadigan xarajatlar</div>
         ${freqRows}
       </div>
     </div>
     <div class="card" style="margin-bottom:18px;">
-      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;">🔺 Eng katta yakka xarajatlar</div>
+      <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;">Eng katta xarajatlar</div>
       ${topRows}
     </div>`;
 }
