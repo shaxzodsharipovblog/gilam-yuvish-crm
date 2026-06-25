@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process -FilePath \"python\" -ArgumentList \"-m\", \"http.server\", \"8080\" -WorkingDirectory \"c:\\\\Users\\\\user\\\\Desktop\\\\gilam-yuvish-crm\" -WindowStyle Hidden; Start-Sleep -Seconds 2; try { $r = Invoke-WebRequest -Uri \"http://localhost:8080/\" -UseBasicParsing -TimeoutSec 3; \"Status: $\\($r.StatusCode\\)\" } catch { \"Error: $_\" })",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/index.html)",
+      "Bash(curl -s http://localhost:8080/index.html)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"console.log\\(require\\('playwright'\\) ? 'playwright bor' : 'yoq'\\)\")",
+      "PowerShell($pw = npm ls -g playwright 2>$null; $pwc = \\(Get-Command playwright -ErrorAction SilentlyContinue\\); if \\($pwc\\) { \"playwright CLI: $\\($pwc.Source\\)\" } else { \"playwright yo'q\" }; $chr = Get-ChildItem \"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\",\"C:\\\\Program Files \\(x86\\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\" -ErrorAction SilentlyContinue | Select-Object -First 1; if \\($chr\\) { \"Browser: $\\($chr.FullName\\)\" } else { \"browser topilmadi\" })",
+      "Bash(python -m http.server 5500)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:5500/index.html)",
+      "Bash(curl -s -o /dev/null http://localhost:5500/)",
+      "Bash(powershell -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''python.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*http.server 5500*'\\\\'' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }')",
+      "Bash(rm -f \"C:/Users/user/.claude/projects/c--Users-user-Desktop-gilam-yuvish-crm/memory/feature_dev_analytics.md\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);const h=fs.readFileSync\\('index.html','utf8'\\);try{new Function\\([...h.matchAll\\(/<script>\\([\\\\s\\\\S]*?\\)<\\\\/script>/g\\)].map\\(m=>m[1]\\).join\\('\\\\n'\\)\\);console.log\\('JS OK'\\)}catch\\(e\\){console.log\\('ERR',e.message\\)}\")",
+      "Bash(curl -s -o /dev/null -w \"Server: HTTP %{http_code}\\\\n\" http://localhost:5500/index.html)",
+      "Bash(git config *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\user\\.claude\\projects\\c--Users-user-Desktop-gilam-yuvish-crm\\memory"
+    ]
+  }
+}
